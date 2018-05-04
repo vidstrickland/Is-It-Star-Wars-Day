@@ -8,18 +8,25 @@ var monthDisplay = monthArray[month];
 var dayDisplay;
 var dayString = String(day);
 
-if(day < 12){
-	dayDisplay = singleDayArray[day-1];
-}else if(day < 20){
-	dayDisplay = preDayArray[day-1] + "teenth";
-}else if(day == 20){
-	dayDisplay = "Twentieth";
-}else if(day == 30){
-	dayDisplay = "Thirtieth";
-}else if(day == 31){
-	dayDisplay = "Thirty-First";
-}else if(dayString[0] == 2){
-	dayDisplay = "Twenty" + "-" + singleDayArray[dayString.charAt(1)-1];
-}
 
-document.getElementById("date").innerHTML = monthDisplay + " the " + dayDisplay + " be with you!";
+	if(day < 12){
+		dayDisplay = singleDayArray[day-1];
+	}else if(day < 20){
+		dayDisplay = preDayArray[day-1] + "teenth";
+	}else if(day == 20){
+		dayDisplay = "Twentieth";
+	}else if(day == 30){
+		dayDisplay = "Thirtieth";
+	}else if(day == 31){
+		dayDisplay = "Thirty-First";
+	}else if(dayString[0] == 2){
+		dayDisplay = "Twenty" + "-" + singleDayArray[dayString.charAt(1)-1];
+	}
+
+	if((month == 4) && (day == 4)){
+		document.getElementById("answer").innerHTML = "No.";
+		document.getElementById("date").innerHTML = "It is " + monthDisplay + " the " + dayDisplay + ".";
+	}else{
+		document.getElementById("answer").innerHTML = "Yes!";
+		document.getElementById("date").innerHTML = monthDisplay + " the " + dayDisplay + " be with you!";
+	}
